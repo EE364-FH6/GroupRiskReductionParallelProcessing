@@ -107,7 +107,7 @@ for i in range(0, len(filenames), chunk_size):
     chunked_list.append(filenames[i:i+chunk_size])
 print(t2-t1)
 with Pool(16) as pool:
-    pool.map(process, filenames)
+    pool.map(process, chunked_list)
 
 t3 = time.time()
 print(t3-t2)
