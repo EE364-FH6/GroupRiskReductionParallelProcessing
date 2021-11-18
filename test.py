@@ -92,10 +92,10 @@ t1 = time.time()
 for f in filenames:
     process(f)
 t2 = time.time()
+
+print(t2-t1)
 with Pool(len(filenames)) as pool:
     pool.map(process, filenames)
 
 t3 = time.time()
-
-print(t2-t1)
 print(t3-t2)
