@@ -75,8 +75,8 @@ cam.release()
 cv2.destroyAllWindows()
 
 filenames = []
-for f in os.listdir("./data/frame"):
-    filenames.append(os.path.join("./data/frame",f))
+for f in os.listdir("./data"):
+    filenames.append(os.path.join("./data",f))
 
 
 def process(img_path):
