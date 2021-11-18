@@ -23,10 +23,7 @@ except:
  
 # filters out all the files with "mp4" extension
 d_video = yt.streams.filter(progressive = True, file_extension = "mp4").first()
- 
-#to set the name of the file
-yt.set_filename('Vid') 
- 
+  
 # get the video with the extension and
 # resolution passed in the get() function
 try:
