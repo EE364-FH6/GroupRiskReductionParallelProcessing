@@ -1,12 +1,10 @@
-```from pytube import YouTube
+from pytube import YouTube
 
 
 import numpy as np
 import cv2
-from matplotlib import pyplot as plt
 import os
 import time
-import random
 
 from multiprocessing import Pool
  
@@ -104,4 +102,4 @@ with Pool(len(filenames)) as pool:
 t3 = time.time()
 
 print(t2-t1)
-print(t3-t2)```
+print(t3-t2)
