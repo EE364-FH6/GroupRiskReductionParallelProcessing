@@ -22,14 +22,13 @@ except:
     print("Connection Error") #to handle exception
  
 # filters out all the files with "mp4" extension
-mp4files = yt.filter('mp4')
+d_video = yt.streams.filter(progressive = True, file_extension = "mp4").first()
  
 #to set the name of the file
-yt.set_filename('GeeksforGeeks Video') 
+yt.set_filename('Vid') 
  
 # get the video with the extension and
 # resolution passed in the get() function
-d_video = yt.streams.filter(progressive = True, file_extension = "mp4").first()
 try:
     # downloading the video
     d_video.download(SAVE_PATH)
