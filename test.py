@@ -89,7 +89,7 @@ def process(img_path):
       # and train image
       kp, des = orb.detectAndCompute(cv2.imread(img_path), None)
     else:
-      for pa in image_path:
+      for pa in img_path:
         orb = cv2.ORB_create()
         
         # Now detect the keypoints and compute
