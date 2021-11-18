@@ -81,20 +81,32 @@ for f in os.listdir("./data"):
 
 def process(img_path):
     # Initialize the ORB detector algorithm
-    orb = cv2.ORB_create()
-    
-    # Now detect the keypoints and compute
-    # the descriptors for the query image
-    # and train image
-    kp, des = orb.detectAndCompute(cv2.imread(img_path), None)
+    if  isinstance(img_path, str):
+      orb = cv2.ORB_create()
+      
+      # Now detect the keypoints and compute
+      # the descriptors for the query image
+      # and train image
+      kp, des = orb.detectAndCompute(cv2.imread(img_path), None)
+    else:
+      for pa in image_path:
+        orb = cv2.ORB_create()
+        
+        # Now detect the keypoints and compute
+        # the descriptors for the query image
+        # and train image
+        kp, des = orb.detectAndCompute(cv2.imread(pa), None)
 
 t1 = time.time()
 for f in filenames:
     process(f)
 t2 = time.time()
-
+chunked_list = list()
+chunk_size = int(len(filenames)/16)
+for i in range(0, len(filenames), chunk_size):
+    chunked_list.append(filenames[i:i+chunk_size])
 print(t2-t1)
-with Pool(len(filenames)) as pool:
+with Pool(16) as pool:
     pool.map(process, filenames)
 
 t3 = time.time()
